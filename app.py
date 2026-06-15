@@ -128,6 +128,9 @@ def predict_sentiment(text):
 
     prediction = torch.argmax(probabilities, dim=1).item()
 
+    st.write("Probabilities:", probabilities.tolist())
+    st.write("Prediction:", prediction)
+
     confidence = torch.max(probabilities).item()
 
     label_map = {
