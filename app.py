@@ -61,20 +61,22 @@ color:#EE4D2D;
 # LOAD MODEL
 # =====================================
 
-MODEL_PATH = "model_indobert"
-
+MODEL_NAME = "nabilaeky/shopee-sentiment-indobert"
 
 @st.cache_resource
 def load_model():
 
-    tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH, local_files_only=True)
+    tokenizer = AutoTokenizer.from_pretrained(
+        MODEL_NAME,
+        subfolder="model_indobert"
+    )
 
     model = AutoModelForSequenceClassification.from_pretrained(
-        MODEL_PATH, local_files_only=True
+        MODEL_NAME,
+        subfolder="model_indobert"
     )
 
     return tokenizer, model
-
 
 tokenizer, model = load_model()
 
